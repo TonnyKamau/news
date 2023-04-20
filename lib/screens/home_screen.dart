@@ -71,15 +71,43 @@ class _BreakingNews extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     const SizedBox(width: 10.0),
-                    const Icon(
+                    Icon(
                       Icons.more_horiz,
-                      color: Colors.black,
+                      color: Colors.grey.shade500,
                     ),
                   ],
                 ),
               ),
             ],
           ),
+          const SizedBox(height: 20.0),
+          SizedBox(
+            height: 250,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: articles.length,
+                itemBuilder: ((context, index) {
+                  return Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    margin: const EdgeInsets.only(right: 10.0),
+                    child: Column(
+                      children: [
+                        ImageContainer(
+                          height: 200,
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          imageUrl: articles[index].imageUrl,
+                        ),
+                        Text(articles[index].title,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .copyWith(
+                                    fontWeight: FontWeight.bold, height: 1.5)),
+                      ],
+                    ),
+                  );
+                })),
+          )
         ],
       ),
     );
