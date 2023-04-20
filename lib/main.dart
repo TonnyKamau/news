@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/discover', page: () => const DiscoverScreen()),
       ],
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
