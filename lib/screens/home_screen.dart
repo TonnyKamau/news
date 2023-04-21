@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../models/article_model.dart';
 import '../widgets/widget.dart';
@@ -90,20 +91,36 @@ class _BreakingNews extends StatelessWidget {
                   return Container(
                     width: MediaQuery.of(context).size.width * 0.5,
                     margin: const EdgeInsets.only(right: 10.0),
-                    child: Column(
-                      children: [
-                        ImageContainer(
-                          height: 200,
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          imageUrl: articles[index].imageUrl,
-                        ),
-                        Text(articles[index].title,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyLarge!
-                                .copyWith(
-                                    fontWeight: FontWeight.bold, height: 1.5)),
-                      ],
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed('/articles', arguments: articles[index]);
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ImageContainer(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            imageUrl: articles[index].imageUrl,
+                          ),
+                          const SizedBox(height: 10.0),
+                          Text(articles[index].title,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                      fontWeight: FontWeight.bold, height: 1.5)),
+                                      const SizedBox(height: 5.0),
+                                      Text(
+                                       '${DateTime.now().difference(articles[index].createdAt).inHours} hours ago}',
+                                        style: Theme.of(context).textTheme.bodySmall,
+                                      ),
+                                      const SizedBox(height: 5.0),
+                                        Text(
+                                       'by ${articles[index].author}',
+                                        style: Theme.of(context).textTheme.bodySmall,
+                                      ),
+                        ],
+                      ),
                     ),
                   );
                 })),
