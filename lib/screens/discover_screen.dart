@@ -56,7 +56,7 @@ class _CategoryNews extends StatelessWidget {
           indicatorColor: Colors.black,
           tabs: tabs
               .map((e) => Tab(
-                    icon: Text(e,
+                    child: Text(e,
                         style: Theme.of(context)
                             .textTheme
                             .headlineSmall!
@@ -186,6 +186,8 @@ class _DiscoverNews extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20.0),
                 borderSide: BorderSide.none,
               ),
+              errorBorder: InputBorder.none,
+              focusedErrorBorder: InputBorder.none,
             ),
           )
         ],
