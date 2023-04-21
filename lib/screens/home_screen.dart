@@ -93,7 +93,7 @@ class _BreakingNews extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 10.0),
                     child: InkWell(
                       onTap: () {
-                        Get.toNamed('/articles', arguments: articles[index]);
+                        Get.toNamed('/article', arguments: articles[index]);
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,17 +108,18 @@ class _BreakingNews extends StatelessWidget {
                                   .textTheme
                                   .bodyLarge!
                                   .copyWith(
-                                      fontWeight: FontWeight.bold, height: 1.5)),
-                                      const SizedBox(height: 5.0),
-                                      Text(
-                                       '${DateTime.now().difference(articles[index].createdAt).inHours} hours ago}',
-                                        style: Theme.of(context).textTheme.bodySmall,
-                                      ),
-                                      const SizedBox(height: 5.0),
-                                        Text(
-                                       'by ${articles[index].author}',
-                                        style: Theme.of(context).textTheme.bodySmall,
-                                      ),
+                                      fontWeight: FontWeight.bold,
+                                      height: 1.5)),
+                          const SizedBox(height: 5.0),
+                          Text(
+                            '${DateTime.now().difference(articles[index].createdAt).inHours} hours ago',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          const SizedBox(height: 5.0),
+                          Text(
+                            'by ${articles[index].author}',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
                         ],
                       ),
                     ),

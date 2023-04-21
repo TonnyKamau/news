@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => const HomeScreen()),
-        GetPage(name: '/articles', page: () => const ArticleScreen()),
+        GetPage(name: '/article', page: () => const ArticleScreen()),
         GetPage(name: '/discover', page: () => const DiscoverScreen()),
       ],
       debugShowCheckedModeBanner: false,
