@@ -23,7 +23,9 @@ class BottomNavBar extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed('/');
                   },
-                  icon: const Icon(Icons.home))),
+                  icon: const Icon(
+                    Icons.home,
+                  ))),
           label: 'Home',
         ),
         BottomNavigationBarItem(
