@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
@@ -23,8 +24,9 @@ class BottomNavBar extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed('/');
                   },
-                  icon: const Icon(
-                    Icons.home,
+                  icon: const FaIcon(
+                    FontAwesomeIcons.house,
+                    size: 20.0,
                   ))),
           label: 'Home',
         ),
@@ -33,7 +35,10 @@ class BottomNavBar extends StatelessWidget {
               onPressed: () {
                 Get.toNamed('/discover');
               },
-              icon: const Icon(Icons.search)),
+              icon: const FaIcon(
+                FontAwesomeIcons.magnifyingGlass,
+                size: 20.0,
+              )),
           label: 'search',
         ),
         BottomNavigationBarItem(
@@ -43,7 +48,10 @@ class BottomNavBar extends StatelessWidget {
                   onPressed: () {
                     print('no screen yet');
                   },
-                  icon: const Icon(Icons.person))),
+                  icon: const FaIcon(
+                    FontAwesomeIcons.user,
+                    size: 20.0,
+                  ))),
           label: 'profile',
         ),
       ],
