@@ -29,77 +29,107 @@ class ArticleScreen extends StatelessWidget {
             _HeadLine(
               article: article,
             ),
-            Container(
-              padding: const EdgeInsets.all(20.0),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40.0),
-                  topRight: Radius.circular(40.0),
-                ),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      CustomTag(backgroundColor: Colors.black, children: [
-                        CircleAvatar(
-                          radius: 10,
-                          backgroundImage: NetworkImage(article.authorImageUrl),
-                        ),
-                        const SizedBox(width: 10.0),
-                        Text(article.author,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(color: Colors.white)),
-                      ]),
-                      const SizedBox(width: 10.0),
-                      CustomTag(
-                          backgroundColor: Colors.grey.shade200,
-                          children: [
-                            const Icon(
-                              Icons.timer,
-                              color: Colors.grey,
-                            ),
-                            const SizedBox(width: 10.0),
-                            Text(
-                                '${DateTime.now().difference(article.createdAt).inHours} hours ago',
-                                style: Theme.of(context).textTheme.bodyMedium),
-                          ]),
-                      const SizedBox(width: 10.0),
-                      CustomTag(
-                          backgroundColor: Colors.grey.shade200,
-                          children: [
-                            const Icon(
-                              Icons.remove_red_eye,
-                              color: Colors.grey,
-                            ),
-                            const SizedBox(width: 10.0),
-                            Text(article.views.toString(),
-                                style: Theme.of(context).textTheme.bodyMedium),
-                          ]),
-                    ],
-                  ),
-                  const SizedBox(height: 20.0),
-                  Text(
-                    article.title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineSmall!
-                        .copyWith(fontWeight: FontWeight.bold, height: 1.25),
-                  ),
-                  const SizedBox(height: 20.0),
-                  Text(article.body,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(height: 1.5)),
-                ],
-              ),
-            ),
+            _Body(article: article),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _Body extends StatelessWidget {
+  const _Body({
+    Key? key,
+    required this.article,
+  }) : super(key: key);
+
+  final Article article;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20.0),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(40.0),
+          topRight: Radius.circular(40.0),
+        ),
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              CustomTag(backgroundColor: Colors.black, children: [
+                CircleAvatar(
+                  radius: 10,
+                  backgroundImage: NetworkImage(article.authorImageUrl),
+                ),
+                const SizedBox(width: 10.0),
+                Text(article.author,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(color: Colors.white)),
+              ]),
+              const SizedBox(width: 10.0),
+              CustomTag(
+                  backgroundColor: Colors.grey.shade200,
+                  children: [
+                    const Icon(
+                      Icons.timer,
+                      color: Colors.grey,
+                    ),
+                    const SizedBox(width: 10.0),
+                    Text(
+                        '${DateTime.now().difference(article.createdAt).inHours} hours ago',
+                        style: Theme.of(context).textTheme.bodyMedium),
+                  ]),
+              const SizedBox(width: 10.0),
+              CustomTag(
+                  backgroundColor: Colors.grey.shade200,
+                  children: [
+                    const Icon(
+                      Icons.remove_red_eye,
+                      color: Colors.grey,
+                    ),
+                    const SizedBox(width: 10.0),
+                    Text(article.views.toString(),
+                        style: Theme.of(context).textTheme.bodyMedium),
+                  ]),
+            ],
+          ),
+          const SizedBox(height: 20.0),
+          Text(
+            article.title,
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall!
+                .copyWith(fontWeight: FontWeight.bold, height: 1.25),
+          ),
+          const SizedBox(height: 20.0),
+          Text(article.body,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(height: 1.5)),
+          const SizedBox(height: 20.0),
+          GridView.builder(
+              shrinkWrap: true,
+              itemCount: 2,
+              gridDelegate:
+                  const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 1.25,
+                crossAxisSpacing: 10.0,
+                mainAxisSpacing: 10.0,
+              ),
+              itemBuilder: (context, index) {
+                return ImageContainer(
+                    width: MediaQuery.of(context).size.width * 0.42,
+                    imageUrl: article.imageUrl);
+              }),
+        ],
       ),
     );
   }
