@@ -109,7 +109,7 @@ class _CategoryNews extends StatelessWidget {
                                         ),
                                         const SizedBox(width: 5.0),
                                         Text(
-                                          '${DateTime.now().difference(article[index].createdAt).inDays} days ago',
+                                          '${DateTime.now().difference(article[index].createdAt).inHours} hours ago',
                                           style: const TextStyle(
                                             fontSize: 12.0,
                                           ),
