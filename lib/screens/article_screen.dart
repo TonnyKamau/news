@@ -64,7 +64,7 @@ class ArticleScreen extends StatelessWidget {
                             ),
                             const SizedBox(width: 10.0),
                             Text(
-                                '${DateTime.now().difference(article.createdAt).inHours} hours ago',
+                                '${DateTime.now().difference(article.createdAt).inHours} h',
                                 style: Theme.of(context).textTheme.bodyMedium),
                           ]),
                       const SizedBox(width: 10.0),
