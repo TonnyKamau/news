@@ -29,7 +29,65 @@ class ArticleScreen extends StatelessWidget {
             _HeadLine(
               article: article,
             ),
+<<<<<<< HEAD
             _Body(article: article),
+=======
+            Container(
+              padding: const EdgeInsets.all(20.0),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40.0),
+                  topRight: Radius.circular(40.0),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      CustomTag(backgroundColor: Colors.black, children: [
+                        CircleAvatar(
+                          radius: 10,
+                          backgroundImage: NetworkImage(article.authorImageUrl),
+                        ),
+                        const SizedBox(width: 10.0),
+                        Text(article.author,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: Colors.white)),
+                      ]),
+                      const SizedBox(width: 10.0),
+                      CustomTag(
+                          backgroundColor: Colors.grey.shade200,
+                          children: [
+                            const Icon(
+                              Icons.timer,
+                              color: Colors.grey,
+                            ),
+                            const SizedBox(width: 10.0),
+                            Text(
+                                '${DateTime.now().difference(article.createdAt).inHours} h',
+                                style: Theme.of(context).textTheme.bodyMedium),
+                          ]),
+                      const SizedBox(width: 10.0),
+                      CustomTag(
+                          backgroundColor: Colors.grey.shade200,
+                          children: [
+                            const Icon(
+                              Icons.remove_red_eye,
+                              color: Colors.grey,
+                            ),
+                            const SizedBox(width: 10.0),
+                            Text(article.views.toString(),
+                                style: Theme.of(context).textTheme.bodyMedium),
+                          ]),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+>>>>>>> 143963b4b8e756f3b83fb8ae1f78e6a8905579b3
           ],
         ),
       ),
