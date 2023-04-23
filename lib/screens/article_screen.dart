@@ -81,6 +81,20 @@ class ArticleScreen extends StatelessWidget {
                           ]),
                     ],
                   ),
+                  const SizedBox(height: 20.0),
+                  Text(
+                    article.title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineSmall!
+                        .copyWith(fontWeight: FontWeight.bold, height: 1.25),
+                  ),
+                  const SizedBox(height: 20.0),
+                  Text(article.body,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(height: 1.5)),
                 ],
               ),
             ),
