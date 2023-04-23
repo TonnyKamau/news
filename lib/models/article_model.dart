@@ -69,7 +69,7 @@ class Article extends Equatable {
         category: 'Flutter',
         imageUrl:
             'https://images.unsplash.com/photo-1586348943529-beaae6c28db9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bmF0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-        views: 100,
+        views: 1000,
         createdAt: DateTime.now().subtract(const Duration(hours: 7))),
     Article(
         id: '2',
