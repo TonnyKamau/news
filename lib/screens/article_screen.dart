@@ -22,6 +22,10 @@ class ArticleScreen extends StatelessWidget {
           iconTheme: const IconThemeData(color: Colors.white),
           backgroundColor: Colors.transparent,
           elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: () => Get.back(),
+          ),
         ),
         extendBodyBehindAppBar: true,
         body: ListView(
@@ -59,6 +63,7 @@ class _Body extends StatelessWidget {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomTag(backgroundColor: Colors.black, children: [
                 CircleAvatar(
@@ -73,30 +78,25 @@ class _Body extends StatelessWidget {
                         .copyWith(color: Colors.white)),
               ]),
               const SizedBox(width: 10.0),
-              CustomTag(
-                  backgroundColor: Colors.grey.shade200,
-                  children: [
-                    const Icon(
-                      Icons.timer,
-                      color: Colors.grey,
-                    ),
-                    const SizedBox(width: 10.0),
-                    Text(
-                        '${DateTime.now().difference(article.createdAt).inHours}H',
-                        style: Theme.of(context).textTheme.bodyMedium),
-                  ]),
+              CustomTag(backgroundColor: Colors.grey.shade200, children: [
+                const Icon(
+                  Icons.timer,
+                  color: Colors.grey,
+                ),
+                const SizedBox(width: 10.0),
+                Text('${DateTime.now().difference(article.createdAt).inHours}H',
+                    style: Theme.of(context).textTheme.bodyMedium),
+              ]),
               const SizedBox(width: 10.0),
-              CustomTag(
-                  backgroundColor: Colors.grey.shade200,
-                  children: [
-                    const Icon(
-                      Icons.remove_red_eye,
-                      color: Colors.grey,
-                    ),
-                    const SizedBox(width: 10.0),
-                    Text(article.views.toString(),
-                        style: Theme.of(context).textTheme.bodyMedium),
-                  ]),
+              CustomTag(backgroundColor: Colors.grey.shade200, children: [
+                const Icon(
+                  Icons.remove_red_eye,
+                  color: Colors.grey,
+                ),
+                const SizedBox(width: 10.0),
+                Text(article.views.toString(),
+                    style: Theme.of(context).textTheme.bodyMedium),
+              ]),
             ],
           ),
           const SizedBox(height: 20.0),
@@ -117,8 +117,7 @@ class _Body extends StatelessWidget {
           GridView.builder(
               shrinkWrap: true,
               itemCount: 2,
-              gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1.25,
                 crossAxisSpacing: 10.0,
