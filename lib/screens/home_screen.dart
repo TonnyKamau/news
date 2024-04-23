@@ -98,7 +98,7 @@ class _BreakingNews extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ImageContainer(
+                          ImageContain(
                             width: MediaQuery.of(context).size.width * 0.5,
                             imageUrl: articles[index].imageUrl,
                           ),

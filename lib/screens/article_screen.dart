@@ -124,7 +124,7 @@ class _Body extends StatelessWidget {
                 mainAxisSpacing: 10.0,
               ),
               itemBuilder: (context, index) {
-                return ImageContainer(
+                return ImageContain(
                     width: MediaQuery.of(context).size.width * 0.42,
                     imageUrl: article.imageUrl);
               }),

@@ -78,7 +78,7 @@ class _CategoryNews extends StatelessWidget {
                           },
                           child: Row(
                             children: [
-                              ImageContainer(
+                              ImageContain(
                                   width: 80,
                                   imageUrl: article[index].imageUrl,
                                   height: 80,
@@ -174,23 +174,27 @@ class _DiscoverNews extends StatelessWidget {
               filled: true,
               prefixIcon: const Icon(
                 Icons.search,
-                color: Colors.grey,
+                color: Colors.black,
               ),
               suffixIcon: const RotatedBox(
                 quarterTurns: 1,
                 child: Icon(
                   Icons.tune,
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
               ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20.0),
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25),
                 borderSide: BorderSide.none,
               ),
-              errorBorder: InputBorder.none,
-              focusedErrorBorder: InputBorder.none,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25),
+                borderSide: BorderSide.none,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

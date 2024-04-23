@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ImageContainer extends StatelessWidget {
+class ImageContain extends StatelessWidget {
   final double height;
   final double width;
   final String imageUrl;
@@ -8,7 +8,7 @@ class ImageContainer extends StatelessWidget {
   final EdgeInsets? margin;
   final double? borderRadius;
   final Widget? child;
-  const ImageContainer({
+  const ImageContain({
     Key? key,
     this.height = 125.0,
     this.borderRadius = 20.0,
@@ -27,10 +27,7 @@ class ImageContainer extends StatelessWidget {
       padding: padding,
       margin: margin,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(borderRadius!),
-          bottomRight: Radius.circular(borderRadius!),
-        ),
+        borderRadius: BorderRadius.circular(borderRadius!),
         image: DecorationImage(
           image: NetworkImage(imageUrl),
           fit: BoxFit.cover,
